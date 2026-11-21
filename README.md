@@ -3,7 +3,7 @@
 > **Detail-Oriented Writer and Analyst | AI Content Specialist | Educator | Full-Stack AI Builder**  
 > B.Tech in Electrical Engineering (NIT Silchar) · 8+ Years Pedagogy · RLHF & Prompt Engineering Specialist
 
-🌐 **Live Production URL:** [https://portfolio-tawny-iota-zcuylah2o7.vercel.app](https://portfolio-tawny-iota-zcuylah2o7.vercel.app)  
+🌐 **Live Production URL:** [https://subhadeep-roy.vercel.app](https://subhadeep-roy.vercel.app)  
 📦 **GitHub Repository:** [https://github.com/roysubhadeep042-art/subhadeep-roy-portfolio](https://github.com/roysubhadeep042-art/subhadeep-roy-portfolio)
 
 ---
