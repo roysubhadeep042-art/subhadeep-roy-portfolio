@@ -28,7 +28,7 @@ export const PROJECTS: Project[] = [
     isDesktop: true,
     githubUrl: 'https://github.com/roysubhadeep042-art/tiyan-ai',
     releaseUrl: 'https://github.com/roysubhadeep042-art/tiyan-ai/releases/tag/v0.1.0',
-    dodoCheckoutUrl: import.meta.env?.VITE_DODO_CHECKOUT_URL || 'https://checkout.dodopayments.com/buy/tiyan-ai-pro',
+    dodoCheckoutUrl: import.meta.env?.VITE_DODO_CHECKOUT_URL || 'https://checkout.dodopayments.com/buy/pdt_0NsdQshlK53MIZsmJfFNL?quantity=1',
     architectureDetails: {
       coreFlow: [
         'User Input (Push-to-Talk STT or Typed Chat UI) captured in Electron Renderer process.',
