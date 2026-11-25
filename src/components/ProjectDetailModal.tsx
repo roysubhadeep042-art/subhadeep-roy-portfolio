@@ -127,17 +127,39 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
         </div>
 
         {/* Footer Actions */}
-        <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-800">
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-200 dark:border-slate-800">
           <span className="text-xs text-slate-500 dark:text-slate-400 font-mono font-semibold">
-            ID: {project.id}
+            ID: {project.id} {project.version ? `• Build ${project.version}` : ''}
           </span>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={onClose}
               className="px-4 py-2 text-xs font-bold rounded-xl text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
             >
               Close
             </button>
+            {project.releaseUrl && (
+              <a
+                href={project.releaseUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-xl text-cyan-700 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-500/10 hover:bg-cyan-100 dark:hover:bg-cyan-500/20 border border-cyan-200 dark:border-cyan-500/30 transition-all"
+              >
+                <span>Download v0.1.0</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
+            {project.dodoCheckoutUrl && (
+              <a
+                href={project.dodoCheckoutUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-xl text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-md shadow-emerald-600/20 transition-all"
+              >
+                <span>Pro License (Dodo Payments)</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
             {project.liveUrl && (
               <a
                 href={project.liveUrl}

@@ -155,7 +155,7 @@ export const ProjectsSection: React.FC = () => {
               </div>
 
               {/* Card Footer: Action Links */}
-              <div className="p-4 sm:px-7 sm:pb-6 pt-0 border-t border-slate-200 dark:border-slate-800/60 flex items-center justify-between gap-3">
+              <div className="p-4 sm:px-7 sm:pb-6 pt-0 border-t border-slate-200 dark:border-slate-800/60 flex flex-wrap items-center justify-between gap-3">
                 <button
                   onClick={() => setActiveModalProject(project)}
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-700 dark:text-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors cursor-pointer"
@@ -164,25 +164,53 @@ export const ProjectsSection: React.FC = () => {
                   <span>Inspect Architecture</span>
                 </button>
 
-                {project.liveUrl ? (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-cyan-600 hover:bg-cyan-500 shadow-sm shadow-cyan-600/30 transition-all"
-                  >
-                    <span>Live App</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                ) : (
-                  <button
-                    onClick={() => setActiveModalProject(project)}
-                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-800 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-transparent transition-colors cursor-pointer"
-                  >
-                    <span>View Blueprint</span>
-                    <Terminal className="w-3 h-3" />
-                  </button>
-                )}
+                <div className="flex items-center gap-2">
+                  {project.releaseUrl && (
+                    <a
+                      href={project.releaseUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-cyan-700 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-500/10 hover:bg-cyan-100 dark:hover:bg-cyan-500/20 border border-cyan-200 dark:border-cyan-500/30 transition-all"
+                      title="Download v0.1.0 release & source code"
+                    >
+                      <span>Download v0.1.0</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
+
+                  {project.dodoCheckoutUrl && (
+                    <a
+                      href={project.dodoCheckoutUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-sm shadow-emerald-600/30 transition-all"
+                      title="Get Pro License via Dodo Payments"
+                    >
+                      <span>Pro License</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
+
+                  {project.liveUrl ? (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-cyan-600 hover:bg-cyan-500 shadow-sm shadow-cyan-600/30 transition-all"
+                    >
+                      <span>Live App</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  ) : (!project.releaseUrl && (
+                    <button
+                      onClick={() => setActiveModalProject(project)}
+                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-800 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-transparent transition-colors cursor-pointer"
+                    >
+                      <span>View Blueprint</span>
+                      <Terminal className="w-3 h-3" />
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

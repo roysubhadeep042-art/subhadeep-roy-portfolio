@@ -8,6 +8,9 @@ export interface Project {
   highlights: string[];
   badge: string;
   liveUrl?: string;
+  githubUrl?: string;
+  releaseUrl?: string;
+  dodoCheckoutUrl?: string;
   isDesktop?: boolean;
   architectureDetails: {
     coreFlow: string[];

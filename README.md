@@ -43,8 +43,10 @@ This portfolio is engineered with defense-in-depth principles:
 
 ### 1. TIYAN AI — Offline-First Windows Desktop AI Companion (`v0.1.0`)
 - **Category:** `Desktop AI & Local LLMs`
-- **Stack:** Electron, React, TypeScript, Tailwind CSS, SQLite (`sql.js`), Multi-LLM Failover Gateway, Ollama, Windows `System.Speech`.
-- **Highlights:** Dual-engine desktop assistant routing between local Ollama models and cloud failover combos; 100% offline Windows-native speech recognition & TTS; local SQLite persistent memory; permission-gated workspace tools for inspecting and editing local codebases with human confirmation.
+- **GitHub Repository & Releases:** [github.com/roysubhadeep042-art/tiyan-ai](https://github.com/roysubhadeep042-art/tiyan-ai) | [v0.1.0 Release & Download](https://github.com/roysubhadeep042-art/tiyan-ai/releases/tag/v0.1.0)
+- **Monetization:** Free Core + Pro License via **Dodo Payments** global Merchant-of-Record integration.
+- **Stack:** Electron, React, TypeScript, Tailwind CSS, OmniRoute & Ollama, SQLite, Dodo Payments, Windows `System.Speech`.
+- **Highlights:** Multi-provider AI routing via OmniRoute and local Ollama models; cross-drive Windows file search and instant on-disk PDF extraction & summarization; deterministic OS & browser execution (launching apps, Chrome workflows, WhatsApp share intents with single-launch guards); date-grounded live web search with anti-hallucination safeguards, persistent SQLite memory, and Push-to-Talk STT/TTS voice interaction. Developed by শুভদীপ রায় (Subhadeep Roy).
 
 ### 2. AshuAITosh — AI Teaching Assistant for Assam
 - **Category:** `EdTech & AI Web Apps`
