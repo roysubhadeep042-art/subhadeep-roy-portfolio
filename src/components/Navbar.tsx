@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Printer, Menu, X, ArrowUpRight } from 'lucide-react';
+import { Moon, Sun, Printer, Menu, X, ArrowUpRight, ShieldCheck } from 'lucide-react';
 import { PROFILE } from '../data/profile';
 
 interface NavbarProps {
@@ -27,6 +27,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const navLinks = [
     { label: 'About', href: '#about' },
     { label: 'Projects', href: '#projects' },
+    { label: 'TIYAN Pricing', href: '#pricing' },
     { label: 'AI Evaluation', href: '#ai-evaluation' },
     { label: 'Skills', href: '#skills' },
     { label: 'Experience', href: '#experience' },
@@ -68,13 +69,18 @@ export const Navbar: React.FC<NavbarProps> = ({
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 bg-white/90 dark:bg-slate-900/60 p-1.5 rounded-full border border-slate-300/80 dark:border-slate-800/80 shadow-sm backdrop-blur-sm">
+          <nav className="hidden xl:flex items-center gap-1 bg-white/90 dark:bg-slate-900/60 p-1.5 rounded-full border border-slate-300/80 dark:border-slate-800/80 shadow-sm backdrop-blur-sm">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-cyan-700 dark:hover:text-cyan-300 hover:bg-slate-100 dark:hover:bg-slate-800/60 rounded-full transition-all cursor-pointer"
+                className={`px-3 py-1.5 text-xs font-bold transition-all cursor-pointer rounded-full ${
+                  link.href === '#pricing'
+                    ? 'text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 hover:bg-emerald-100 dark:hover:bg-emerald-500/20'
+                    : 'text-slate-700 dark:text-slate-300 hover:text-cyan-700 dark:hover:text-cyan-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+                }`}
               >
+                {link.href === '#pricing' && <ShieldCheck className="w-3 h-3 inline mr-1" />}
                 {link.label}
               </a>
             ))}
@@ -116,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle navigation menu"
-              className="lg:hidden p-2 rounded-xl text-slate-700 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 border border-slate-300 dark:border-slate-800 shadow-sm cursor-pointer"
+              className="xl:hidden p-2 rounded-xl text-slate-700 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 border border-slate-300 dark:border-slate-800 shadow-sm cursor-pointer"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -125,15 +131,20 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-3 p-4 rounded-2xl bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-800 shadow-2xl backdrop-blur-xl animate-fade-in">
+          <div className="xl:hidden mt-3 p-4 rounded-2xl bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-800 shadow-2xl backdrop-blur-xl animate-fade-in">
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2 text-sm font-bold text-slate-800 dark:text-slate-200 hover:text-cyan-700 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-xl transition-all"
+                  className={`px-3 py-2 text-sm font-bold rounded-xl transition-all ${
+                    link.href === '#pricing'
+                      ? 'text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30'
+                      : 'text-slate-800 dark:text-slate-200 hover:text-cyan-700 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-800/50'
+                  }`}
                 >
+                  {link.href === '#pricing' && <ShieldCheck className="w-4 h-4 inline mr-1.5 text-emerald-600" />}
                   {link.label}
                 </a>
               ))}
